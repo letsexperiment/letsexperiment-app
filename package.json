@@ -1,0 +1,27 @@
+{
+  "name": "letsexperiment-app",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:getmicah/letsexperiment-app.git",
+  "author": "Micah Cowell <micahcowell@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node_modules/.bin/webpack-dev-server",
+    "build": "node_modules/.bin/webpack"
+  },
+  "devDependencies": {
+    "awesome-typescript-loader": "^3.2.3",
+    "source-map-loader": "^0.2.1",
+    "typescript": "^2.4.2",
+    "webpack": "^3.5.5",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "dependencies": {
+    "@types/react": "^16.0.2",
+    "@types/react-dom": "^15.5.3",
+    "@types/react-router-dom": "^4.0.7",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.1.2"
+  }
+}
