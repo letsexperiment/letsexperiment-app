@@ -97,7 +97,8 @@ export default class Questionnaire extends React.Component<Props, State> {
 		if (this.state.hasError) {
 			return(
 				<div>
-					<span>ERROR :(</span>
+					<h2>Could not load results for {this.props.sessionId}</h2>
+					<p>Our servers might be down, please try again later</p>
 				</div>
 			);
 		} else {

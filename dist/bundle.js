@@ -475,65 +475,6 @@ var createPath = exports.createPath = function createPath(location) {
 
 /***/ }),
 /* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright 2013-2015, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
-
-
-
-/**
- * Use invariant() to assert state which your program assumes to be true.
- *
- * Provide sprintf-style format (only %s is supported) and arguments
- * to provide information about what broke and what you were
- * expecting.
- *
- * The invariant message will be stripped in production, but the invariant
- * will remain to ensure logic does not differ in production.
- */
-
-var invariant = function(condition, format, a, b, c, d, e, f) {
-  if (process.env.NODE_ENV !== 'production') {
-    if (format === undefined) {
-      throw new Error('invariant requires an error message argument');
-    }
-  }
-
-  if (!condition) {
-    var error;
-    if (format === undefined) {
-      error = new Error(
-        'Minified exception occurred; use the non-minified dev environment ' +
-        'for the full error message and additional helpful warnings.'
-      );
-    } else {
-      var args = [a, b, c, d, e, f];
-      var argIndex = 0;
-      error = new Error(
-        format.replace(/%s/g, function() { return args[argIndex++]; })
-      );
-      error.name = 'Invariant Violation';
-    }
-
-    error.framesToPop = 1; // we don't care about invariant's own frame
-    throw error;
-  }
-};
-
-module.exports = invariant;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
-
-/***/ }),
-/* 7 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -590,6 +531,65 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright 2013-2015, Facebook, Inc.
+ * All rights reserved.
+ *
+ * This source code is licensed under the BSD-style license found in the
+ * LICENSE file in the root directory of this source tree. An additional grant
+ * of patent rights can be found in the PATENTS file in the same directory.
+ */
+
+
+
+/**
+ * Use invariant() to assert state which your program assumes to be true.
+ *
+ * Provide sprintf-style format (only %s is supported) and arguments
+ * to provide information about what broke and what you were
+ * expecting.
+ *
+ * The invariant message will be stripped in production, but the invariant
+ * will remain to ensure logic does not differ in production.
+ */
+
+var invariant = function(condition, format, a, b, c, d, e, f) {
+  if (process.env.NODE_ENV !== 'production') {
+    if (format === undefined) {
+      throw new Error('invariant requires an error message argument');
+    }
+  }
+
+  if (!condition) {
+    var error;
+    if (format === undefined) {
+      error = new Error(
+        'Minified exception occurred; use the non-minified dev environment ' +
+        'for the full error message and additional helpful warnings.'
+      );
+    } else {
+      var args = [a, b, c, d, e, f];
+      var argIndex = 0;
+      error = new Error(
+        format.replace(/%s/g, function() { return args[argIndex++]; })
+      );
+      error.name = 'Invariant Violation';
+    }
+
+    error.framesToPop = 1; // we don't care about invariant's own frame
+    throw error;
+  }
+};
+
+module.exports = invariant;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
 
 /***/ }),
 /* 8 */
@@ -900,7 +900,7 @@ exports.default = createTransitionManager;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
@@ -1473,7 +1473,7 @@ Link.contextTypes = {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = ['Answer 1', 'Answer 2', 'Answer 3', 'Answer 4'];
+exports.default = ['Not a chance', 'Already do this', 'I\'m down ', 'Definitely'];
 
 
 /***/ }),
@@ -1503,10 +1503,10 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
 var ReactDOM = __webpack_require__(21);
-var react_router_dom_1 = __webpack_require__(7);
+var react_router_dom_1 = __webpack_require__(6);
 var Header_1 = __webpack_require__(51);
 var CreateSession_1 = __webpack_require__(52);
-var Questionnaire_1 = __webpack_require__(54);
+var Questionnaire_1 = __webpack_require__(55);
 var App = (function (_super) {
     __extends(App, _super);
     function App() {
@@ -2282,7 +2282,7 @@ var _warning = __webpack_require__(4);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(7);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -3554,7 +3554,7 @@ module.exports = Array.isArray || function (arr) {
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_invariant__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_invariant__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react__);
@@ -3987,7 +3987,7 @@ var _warning = __webpack_require__(4);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _invariant = __webpack_require__(6);
+var _invariant = __webpack_require__(7);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -4468,7 +4468,7 @@ NavLink.defaultProps = {
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
-var react_router_dom_1 = __webpack_require__(7);
+var react_router_dom_1 = __webpack_require__(6);
 exports.default = function () {
     return (React.createElement("header", null,
         React.createElement("div", null,
@@ -4494,12 +4494,9 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
-var react_router_dom_1 = __webpack_require__(7);
-/*
-import basicQuestions from '../lib/basicQuestions';
-import advancedQuestions from '../lib/advancedQuestions';
-*/
-var genericQuestions_1 = __webpack_require__(53);
+var react_router_dom_1 = __webpack_require__(6);
+var basicQuestions_1 = __webpack_require__(53);
+var advancedQuestions_1 = __webpack_require__(54);
 var CreateSession = (function (_super) {
     __extends(CreateSession, _super);
     function CreateSession(props) {
@@ -4521,7 +4518,7 @@ var CreateSession = (function (_super) {
         var _this = this;
         e.preventDefault();
         this.props.hideApp();
-        var sessionQuestions = genericQuestions_1.default; //this.state.advancedQuestions ? advancedQuestions : basicQuestions;
+        var sessionQuestions = this.state.advancedQuestions ? advancedQuestions_1.default : basicQuestions_1.default;
         fetch('https://letsexperiment-api.herokuapp.com/v1/', {
             method: 'post',
             body: JSON.stringify({
@@ -4607,69 +4604,1623 @@ exports.default = CreateSession;
 
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = [
-    ['group1', [
+    ['basic', [
             {
-                "question": "question..?",
+                "question": "have longer teasing and foreplay sessions with partner",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "give {{P}} a sensual massage",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have {{P}} give me a sensual massage",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "take pictures of {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have pictures taken of me by {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "take pictures of us having sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "strip or give a lap dance to {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have {{P}} strip or give me a lap dance",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "video ourselves having sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "use mirrors while having sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "be woken up with sex or oral sex by {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "wake up {{P}} with sex or oral sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "watch {{P}} masturbate",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "be watched by {{P}} while I masturbate",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "shave {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "be shaven by {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "shave each other",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "watch porn together",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "boobjob (thrust penis between breasts)",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "be more vocal towards {{P}} during sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have {{P}} be more vocal",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "talk dirtier to {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have {{P}} talk dirtier to me",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have sex while on period",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have sex while on period",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "roleplay in costumes",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "wear stocking and high heels for {{P}} during sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "listen to romantic music while having sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "listen to more aggressive (rap/rock) music while having sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "mutually masturbate",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "be rougher in sex towards {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have {{P}} be rougher to me in sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "be fisted by partner",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "69 together",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have {{P}} swallow my cum",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "swallow {{P}}'s cum",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "cum on breasts/neck (pearl necklace)",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "cum on face (facial)",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "cum on {{P}}'s face (facial)",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have {{P}} cum over my face (facial)",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have {{P}} sit on my face as I give oral sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "sit on {{P}}'s face and be given oral sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have sex in hot room and have drippy, sweaty sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have sex while covered in warm oil",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "give oral sex while {{P}} is driving",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "receive oral sex while driving",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have partner wear stockings and high heels during sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "fist {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "aggressively fuck partners mouth",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have mouth aggressively fucked by partner",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "send {{P}} sexy text messages and emails",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "receive sexy text messages and emails from {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "send {{P}} dirty pictures or videos",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "receive sexy pictures or videos from {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "send {{P}} sexy fantasy stories",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "receive sexy fantasy stories from {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have sex while intoxicated",
+                "answer": null,
+                "advanced": false
+            }
+        ]],
+    ['discovery', [
+            {
+                "question": "show {{P}} something I like from a porn scene",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "be shown what {{P}} likes from porn",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "Explore {{P}}'s body",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "Have {{P}} explore my body",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "Show {{P}} the spots and techniques I like on my body",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "Have {{P}} show me the spots and techniques they like on their body",
+                "answer": null,
+                "advanced": false
+            }
+        ]],
+    ['toys', [
+            {
+                "question": "use dildos in sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "use vibrators while having sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "wear a cock ring (vibrating/non-vibrating) during sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "use nipple clamps on myself",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "use butt plug on myself while having sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have {{P}} use a butt plug",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "use sex furniture (such as a sex swing or ramp)",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "watch {{P}} fuck a dildo",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "fuck dildo while {{P}} watches",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have {{P}} use nipple clamps",
+                "answer": null,
+                "advanced": false
+            }
+        ]],
+    ['anal', [
+            {
+                "question": "anally finger {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "be fingered anally by {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "anally penetrate {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "double penetrate partner with me and a toy",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "peg partner with a strap-on",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "lick {{P}}'s anus (analingus)",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "be licked anally by {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "be anally penetrated by {{P}}",
+                "answer": null,
+                "advanced": false
+            }
+        ]],
+    ['public', [
+            {
+                "question": "fondle {{P}} in a public setting (restaurant/theater)",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "be fondled by {{P}} in a public setting (restaurant/theater)",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have my pictures posted on the internet",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "show pictures of us having sex over the internet",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "show pictures/film of {{P}} over the internet",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have sex in a car",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have sex in the woods or in a park",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have sex in work environment (office, etc)",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have sex in front of an outward facing window",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have sex in a place where you might get caught",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "watch {{P}} have sex with another person",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have sex with another person while {{P}} watches",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "go to a strip club with partner",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "go to a sex or swingers club with partner",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "go to a nudist resort with partner",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "go to a pleasure resort with partner",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "start a social media account (i.e. instagram, tumblr, reddit) and post sexy videos and pictures",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "wear a vibrator with wireless remote that {{P}} controls in public",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have partner wear a vibrator with a wireless remote that you control in public",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "take sexy photos in secluded places (i.e. dirt road, park, parking garage)",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "give lap dance to {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "get lap dance from {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "go commando in public",
+                "answer": null,
+                "advanced": false
+            },
+        ]],
+    ['group', [
+            {
+                "question": "watch other couples have sex (live)",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "let another couple watch us have sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "have another person take video/photos while we have sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "let a group of people watch us have sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "let a female friend watch us have sex",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "let a male friend watch us have sex",
+                "answer": null,
+                "advanced": false
+            },
+        ]],
+    ['other', [
+            {
+                "question": "call {{P}} obscene words (bitch, slut, whore, etc)",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "be called obscene words (bitch, slut, whore, etc) by {{P}}",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "give {{P}} a foot job",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "be given a foot job",
+                "answer": null,
+                "advanced": false
+            },
+            {
+                "question": "douse ourselves in oil/mud/paint/milk/pies during sex",
+                "answer": null,
+                "advanced": false
+            },
+        ]]
+];
+
+
+/***/ }),
+/* 54 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.default = [
+    ['basic', [
+            {
+                "question": "have longer teasing and foreplay sessions with partner",
                 "answer": null
             },
             {
-                "question": "question..?",
+                "question": "give {{P}} a sensual massage",
                 "answer": null
             },
             {
-                "question": "question..?",
+                "question": "have {{P}} give me a sensual massage",
                 "answer": null
             },
             {
-                "question": "question..?",
+                "question": "take pictures of {{P}}",
                 "answer": null
             },
             {
-                "question": "question..?",
+                "question": "have pictures taken of me by {{P}}",
+                "answer": null
+            },
+            {
+                "question": "take pictures of us having sex",
+                "answer": null
+            },
+            {
+                "question": "strip or give a lap dance to {{P}}",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} strip or give me a lap dance",
+                "answer": null
+            },
+            {
+                "question": "video ourselves having sex",
+                "answer": null
+            },
+            {
+                "question": "use mirrors while having sex",
+                "answer": null
+            },
+            {
+                "question": "be woken up with sex or oral sex by {{P}}",
+                "answer": null
+            },
+            {
+                "question": "wake up {{P}} with sex or oral sex",
+                "answer": null
+            },
+            {
+                "question": "watch {{P}} masturbate",
+                "answer": null
+            },
+            {
+                "question": "be watched by {{P}} while I masturbate",
+                "answer": null
+            },
+            {
+                "question": "shave {{P}}",
+                "answer": null
+            },
+            {
+                "question": "be shaven by {{P}}",
+                "answer": null
+            },
+            {
+                "question": "shave each other",
+                "answer": null
+            },
+            {
+                "question": "watch porn together",
+                "answer": null
+            },
+            {
+                "question": "boobjob (thrust penis between breasts)",
+                "answer": null
+            },
+            {
+                "question": "be more vocal towards {{P}} during sex",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} be more vocal",
+                "answer": null
+            },
+            {
+                "question": "talk dirtier to {{P}}",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} talk dirtier to me",
+                "answer": null
+            },
+            {
+                "question": "have sex while on period",
+                "answer": null
+            },
+            {
+                "question": "have sex while on period",
+                "answer": null
+            },
+            {
+                "question": "roleplay in costumes",
+                "answer": null
+            },
+            {
+                "question": "wear stocking and high heels for {{P}} during sex",
+                "answer": null
+            },
+            {
+                "question": "listen to romantic music while having sex",
+                "answer": null
+            },
+            {
+                "question": "listen to more aggressive (rap/rock) music while having sex",
+                "answer": null
+            },
+            {
+                "question": "mutually masturbate",
+                "answer": null
+            },
+            {
+                "question": "be rougher in sex towards {{P}}",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} be rougher to me in sex",
+                "answer": null
+            },
+            {
+                "question": "be fisted by partner",
+                "answer": null
+            },
+            {
+                "question": "69 together",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} swallow my cum",
+                "answer": null
+            },
+            {
+                "question": "swallow {{P}}'s cum",
+                "answer": null
+            },
+            {
+                "question": "cum on breasts/neck (pearl necklace)",
+                "answer": null
+            },
+            {
+                "question": "cum on face (facial)",
+                "answer": null
+            },
+            {
+                "question": "cum on {{P}}'s face (facial)",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} cum over my face (facial)",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} sit on my face as I give oral sex",
+                "answer": null
+            },
+            {
+                "question": "sit on {{P}}'s face and be given oral sex",
+                "answer": null
+            },
+            {
+                "question": "have sex in hot room and have drippy, sweaty sex",
+                "answer": null
+            },
+            {
+                "question": "have sex while covered in warm oil",
+                "answer": null
+            },
+            {
+                "question": "give oral sex while {{P}} is driving",
+                "answer": null
+            },
+            {
+                "question": "receive oral sex while driving",
+                "answer": null
+            },
+            {
+                "question": "have partner wear stockings and high heels during sex",
+                "answer": null
+            },
+            {
+                "question": "fist {{P}}",
+                "answer": null
+            },
+            {
+                "question": "aggressively fuck partners mouth",
+                "answer": null
+            },
+            {
+                "question": "have mouth aggressively fucked by partner",
+                "answer": null
+            },
+            {
+                "question": "send {{P}} sexy text messages and emails",
+                "answer": null
+            },
+            {
+                "question": "receive sexy text messages and emails from {{P}}",
+                "answer": null
+            },
+            {
+                "question": "send {{P}} dirty pictures or videos",
+                "answer": null
+            },
+            {
+                "question": "receive sexy pictures or videos from {{P}}",
+                "answer": null
+            },
+            {
+                "question": "send {{P}} sexy fantasy stories",
+                "answer": null
+            },
+            {
+                "question": "receive sexy fantasy stories from {{P}}",
+                "answer": null
+            },
+            {
+                "question": "have sex while intoxicated",
                 "answer": null
             }
         ]],
-    ['group2', [
+    ['discovery', [
             {
-                "question": "question..?",
+                "question": "show {{P}} something I like from a porn scene",
                 "answer": null
             },
             {
-                "question": "question..?",
+                "question": "be shown what {{P}} likes from porn",
                 "answer": null
             },
             {
-                "question": "question..?",
+                "question": "Explore {{P}}'s body",
                 "answer": null
             },
             {
-                "question": "question..?",
+                "question": "Have {{P}} explore my body",
                 "answer": null
             },
             {
-                "question": "question..?",
+                "question": "Show {{P}} the spots and techniques I like on my body",
+                "answer": null
+            },
+            {
+                "question": "Have {{P}} show me the spots and techniques they like on their body",
                 "answer": null
             }
         ]],
-    ['group3', [
+    ['toys', [
             {
-                "question": "question..?",
+                "question": "use dildos in sex",
                 "answer": null
             },
             {
-                "question": "question..?",
+                "question": "use vibrators while having sex",
                 "answer": null
             },
             {
-                "question": "question..?",
+                "question": "wear a cock ring (vibrating/non-vibrating) during sex",
                 "answer": null
             },
             {
-                "question": "question..?",
+                "question": "use nipple clamps on myself",
                 "answer": null
             },
             {
-                "question": "question..?",
+                "question": "use butt plug on myself while having sex",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} use a butt plug",
+                "answer": null
+            },
+            {
+                "question": "use sex furniture (such as a sex swing or ramp)",
+                "answer": null
+            },
+            {
+                "question": "use large dildos during sex",
+                "answer": null
+            },
+            {
+                "question": "watch {{P}} fuck a dildo",
+                "answer": null
+            },
+            {
+                "question": "fuck dildo while {{P}} watches",
+                "answer": null
+            },
+            {
+                "question": "install stripper pole in your house",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} use nipple clamps",
+                "answer": null
+            }
+        ]],
+    ['bdsm', [
+            {
+                "question": "have a weapon (knife, gun) directed at me during sex (knife and gun play)",
+                "answer": null
+            },
+            {
+                "question": "direct a weapon (knife, gun) during sex (knife and gun play)",
+                "answer": null
+            },
+            {
+                "question": "wear earplugs during sex",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} wear earplugs during sex",
+                "answer": null
+            },
+            {
+                "question": "slap {{P}}'s face during sex",
+                "answer": null
+            },
+            {
+                "question": "have my face slapped during sex",
+                "answer": null
+            },
+            {
+                "question": "blindfold {{P}}",
+                "answer": null
+            },
+            {
+                "question": "be blindfolded by {{P}}",
+                "answer": null
+            },
+            {
+                "question": "punch {{P}} during sex",
+                "answer": null
+            },
+            {
+                "question": "be punched by {{P}} during sex",
+                "answer": null
+            },
+            {
+                "question": "use restraints on {{P}}",
+                "answer": null
+            },
+            {
+                "question": "be tied down or otherwise restrained by {{P}}",
+                "answer": null
+            },
+            {
+                "question": "pull {{P}}'s hair",
+                "answer": null
+            },
+            {
+                "question": "have my hair pulled by {{P}}",
+                "answer": null
+            },
+            {
+                "question": "use a riding crop on {{P}}",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} use a riding crop on me",
+                "answer": null
+            },
+            {
+                "question": "spank {{P}} with your hand",
+                "answer": null
+            },
+            {
+                "question": "be spanked by {{P}}'s hand",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} strike me with a cane",
+                "answer": null
+            },
+            {
+                "question": "be struck by {{P}} with a cane",
+                "answer": null
+            },
+            {
+                "question": "spank {{P}} with toys (whip/paddle)",
+                "answer": null
+            },
+            {
+                "question": "be spanked by {{P}} with toys (whip/paddle)",
+                "answer": null
+            },
+            {
+                "question": "bite {{P}}",
+                "answer": null
+            },
+            {
+                "question": "be bitten by {{P}}",
+                "answer": null
+            },
+            {
+                "question": "wear a dog collar with a leash",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} wear a dog collar with a leash",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} be submissive and worship one of my body parts",
+                "answer": null
+            },
+            {
+                "question": "be submissive and worship one of {{P}}'s body parts",
+                "answer": null
+            },
+            {
+                "question": "be submissive to {{P}}",
+                "answer": null
+            },
+            {
+                "question": "be dominant towards {{P}}",
+                "answer": null
+            },
+            {
+                "question": "wear hoods or half hoods for {{P}}",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} wear hoods or half-hoods",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} act as furniture to be used by me",
+                "answer": null
+            },
+            {
+                "question": "act as furniture to be used by {{P}}",
+                "answer": null
+            },
+            {
+                "question": "roleplay rape {{P}}",
+                "answer": null
+            },
+            {
+                "question": "be roleplay raped by {{P}}",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} be a submissive brat",
+                "answer": null
+            },
+            {
+                "question": "be a submissive brat towards {{P}}",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} be a submissive servant",
+                "answer": null
+            },
+            {
+                "question": "be a submissive servant towards {{P}}",
+                "answer": null
+            },
+            {
+                "question": "command and deny orgasms for {{P}}",
+                "answer": null
+            },
+            {
+                "question": "be commanded and denied orgasms by {{P}}",
+                "answer": null
+            },
+            {
+                "question": "be a 24/7 slave for {{P}}",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} be a 24/7 slave",
+                "answer": null
+            },
+            {
+                "question": "wear a chastity belt for {{P}}",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} wear a chastity belt",
+                "answer": null
+            },
+            {
+                "question": "be a Gorean slave for {{P}}",
+                "answer": null
+            },
+            {
+                "question": "be a Gorean master for {{P}}",
+                "answer": null
+            },
+            {
+                "question": "be suspended while having sex with {{P}}",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} be suspended while having sex",
+                "answer": null
+            },
+            {
+                "question": "wear a ball gag for {{P}}",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} wear a ball gag",
+                "answer": null
+            },
+            {
+                "question": "torture {{P}}'s genitals",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} torture my genitals",
+                "answer": null
+            },
+            {
+                "question": "be spanked/whipped lightly",
+                "answer": null
+            },
+            {
+                "question": "spank/hit partner lightly",
+                "answer": null
+            }
+        ]],
+    ['anal', [
+            {
+                "question": "anally fist {{P}}",
+                "answer": null
+            },
+            {
+                "question": "be anally fisted by {{P}}",
+                "answer": null
+            },
+            {
+                "question": "anally finger {{P}}",
+                "answer": null
+            },
+            {
+                "question": "be fingered anally by {{P}}",
+                "answer": null
+            },
+            {
+                "question": "anally penetrate {{P}}",
+                "answer": null
+            },
+            {
+                "question": "double penetrate partner with me and a toy",
+                "answer": null
+            },
+            {
+                "question": "peg partner with a strap-on",
+                "answer": null
+            },
+            {
+                "question": "lick {{P}}'s anus (analingus)",
+                "answer": null
+            },
+            {
+                "question": "be licked anally by {{P}}",
+                "answer": null
+            },
+            {
+                "question": "penetrate {{P}} with a toy while having sex",
+                "answer": null
+            },
+            {
+                "question": "be penetrated with a toy while having sex",
+                "answer": null
+            },
+            {
+                "question": "be pegged by {{P}}",
+                "answer": null
+            },
+            {
+                "question": "wear a buttplug in public",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} wear a buttplug in public",
+                "answer": null
+            },
+            {
+                "question": "be anally penetrated by {{P}}",
+                "answer": null
+            }
+        ]],
+    ['public', [
+            {
+                "question": "fondle {{P}} in a public setting (restaurant/theater)",
+                "answer": null
+            },
+            {
+                "question": "be fondled by {{P}} in a public setting (restaurant/theater)",
+                "answer": null
+            },
+            {
+                "question": "have my pictures posted on the internet",
+                "answer": null
+            },
+            {
+                "question": "show pictures of us having sex over the internet",
+                "answer": null
+            },
+            {
+                "question": "show pictures/film of {{P}} over the internet",
+                "answer": null
+            },
+            {
+                "question": "have sex in a car",
+                "answer": null
+            },
+            {
+                "question": "have sex in the woods or in a park",
+                "answer": null
+            },
+            {
+                "question": "have sex in work environment (office, etc)",
+                "answer": null
+            },
+            {
+                "question": "have sex in front of an outward facing window",
+                "answer": null
+            },
+            {
+                "question": "have sex in a place where you might get caught",
+                "answer": null
+            },
+            {
+                "question": "watch {{P}} have sex with another person",
+                "answer": null
+            },
+            {
+                "question": "have sex with another person while {{P}} watches",
+                "answer": null
+            },
+            {
+                "question": "go to a strip club with partner",
+                "answer": null
+            },
+            {
+                "question": "go to a sex or swingers club with partner",
+                "answer": null
+            },
+            {
+                "question": "go to a nudist resort with partner",
+                "answer": null
+            },
+            {
+                "question": "go to a pleasure resort with partner",
+                "answer": null
+            },
+            {
+                "question": "start a social media account (i.e. instagram, tumblr, reddit) and post sexy videos and pictures",
+                "answer": null
+            },
+            {
+                "question": "wear a vibrator with wireless remote that {{P}} controls in public",
+                "answer": null
+            },
+            {
+                "question": "have partner wear a vibrator with a wireless remote that you control in public",
+                "answer": null
+            },
+            {
+                "question": "use sex toys in public (i.e. vibrator up skirt at a restaurant or while out shopping)",
+                "answer": null
+            },
+            {
+                "question": "take sexy photos in secluded places (i.e. dirt road, park, parking garage)",
+                "answer": null
+            },
+            {
+                "question": "strip at a sex club in front of partner",
+                "answer": null
+            },
+            {
+                "question": "watch {{P}} strip at a sex club",
+                "answer": null
+            },
+            {
+                "question": "strip at amateur night at a strip club",
+                "answer": null
+            },
+            {
+                "question": "watch {{P}} strip at amateur night at a strip club",
+                "answer": null
+            },
+            {
+                "question": "give lap dance to {{P}}",
+                "answer": null
+            },
+            {
+                "question": "get lap dance from {{P}}",
+                "answer": null
+            },
+            {
+                "question": "perform oral sex on {{P}} in a public setting",
+                "answer": null
+            },
+            {
+                "question": "have oral sex performed on you by {{P}} in a public setting",
+                "answer": null
+            },
+            {
+                "question": "have sex in a movie theater",
+                "answer": null
+            },
+            {
+                "question": "have sex on the beach",
+                "answer": null
+            },
+            {
+                "question": "be gangbanged while {{P}} watches",
+                "answer": null
+            },
+            {
+                "question": "watch {{P}} get gangbanged",
+                "answer": null
+            },
+            {
+                "question": "participate while {{P}} gets gangbanged",
+                "answer": null
+            },
+            {
+                "question": "be gangbanged while {{P}} participates",
+                "answer": null
+            },
+            {
+                "question": "go to nude beach with partner",
+                "answer": null
+            },
+            {
+                "question": "go to a sex club or resort with partner",
+                "answer": null
+            },
+            {
+                "question": "wear thong bikini in public",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} wear thong bikini in public",
+                "answer": null
+            },
+            {
+                "question": "wear only long coat in public with nothing underneath",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} only wear long coat in public with nothing underneath",
+                "answer": null
+            },
+            {
+                "question": "go commando in public",
+                "answer": null
+            },
+            {
+                "question": "Take sexy or nude photos in public places (i.e. upskirt pictures, flashing, bending over)",
+                "answer": null
+            },
+            {
+                "question": "wear sexy lingerie under clothing in public",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} wear sexy lingerie under clothing in public",
+                "answer": null
+            },
+            {
+                "question": "wear latex, leather, lace or other sensual materials in public",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} wear latex, leather, lace or other sensual materials in public",
+                "answer": null
+            }
+        ]],
+    ['group', [
+            {
+                "question": "be bukkake'd by partner and other males",
+                "answer": null
+            },
+            {
+                "question": "double penetration by your partner and another man",
+                "answer": null
+            },
+            {
+                "question": "triple penetration by your partner two other males",
+                "answer": null
+            },
+            {
+                "question": "watch other couples have sex (live)",
+                "answer": null
+            },
+            {
+                "question": "let another couple watch us have sex",
+                "answer": null
+            },
+            {
+                "question": "have sex monogamously with other couples (don't touch other couples)",
+                "answer": null
+            },
+            {
+                "question": "include another female in sex",
+                "answer": null
+            },
+            {
+                "question": "include another male in sex",
+                "answer": null
+            },
+            {
+                "question": "include another couple in sex (swinging, soft-swap, no penetration outside couples)",
+                "answer": null
+            },
+            {
+                "question": "include more than two males in sex",
+                "answer": null
+            },
+            {
+                "question": "include more than two females in sex",
+                "answer": null
+            },
+            {
+                "question": "participate in an large orgy (more than 4 people)",
+                "answer": null
+            },
+            {
+                "question": "suck semen out of partner's vagina or anus after sex (felching)",
+                "answer": null
+            },
+            {
+                "question": "double penetrate partner with another man",
+                "answer": null
+            },
+            {
+                "question": "triple penetrate partner with two other men",
+                "answer": null
+            },
+            {
+                "question": "include another couple in sex (swinging, full-swap)",
+                "answer": null
+            },
+            {
+                "question": "have another person take video/photos while we have sex",
+                "answer": null
+            },
+            {
+                "question": "let a group of people watch us have sex",
+                "answer": null
+            },
+            {
+                "question": "let a female friend watch us have sex",
+                "answer": null
+            },
+            {
+                "question": "let a male friend watch us have sex",
+                "answer": null
+            },
+            {
+                "question": "include another female in sex where only the females interact (FFM)",
+                "answer": null
+            },
+            {
+                "question": "include another male in sex where only the males interact (MMF)",
+                "answer": null
+            }
+        ]],
+    ['other', [
+            {
+                "question": "call {{P}} obscene words (bitch, slut, whore, etc)",
+                "answer": null
+            },
+            {
+                "question": "be called obscene words (bitch, slut, whore, etc) by {{P}}",
+                "answer": null
+            },
+            {
+                "question": "give {{P}} a foot job",
+                "answer": null
+            },
+            {
+                "question": "be given a foot job",
+                "answer": null
+            },
+            {
+                "question": "douse ourselves in oil/mud/paint/milk/pies during sex",
+                "answer": null
+            },
+            {
+                "question": "use chemicals (menthol, toothpaste, ben-gay) on {{P}}",
+                "answer": null
+            },
+            {
+                "question": "have partner use chemicals on me (menthol, toothpaste, ben-gay)",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} give me a golden shower",
+                "answer": null
+            },
+            {
+                "question": "give {{P}} a golden shower",
+                "answer": null
+            },
+            {
+                "question": "have {{P}} give me a brown shower",
+                "answer": null
+            },
+            {
+                "question": "give {{P}} a brown shower",
+                "answer": null
+            },
+            {
+                "question": "swap my cum with my partner",
+                "answer": null
+            },
+            {
+                "question": "suck semen out of partner's vagina or anus after sex (felching)",
+                "answer": null
+            },
+            {
+                "question": "wear latex catsuit during sex",
+                "answer": null
+            },
+            {
+                "question": "have partner wear latex catsuit during sex",
+                "answer": null
+            },
+            {
+                "question": "get lap dance while {{P}} watches",
+                "answer": null
+            },
+            {
+                "question": "watch {{P}} get a lap dance",
+                "answer": null
+            },
+            {
+                "question": "watch {{P}} give lap dance to someone else",
+                "answer": null
+            },
+            {
+                "question": "give lap dance to someone else while {{P}} watches",
+                "answer": null
+            },
+            {
+                "question": "flash someone else in front of {{P}}",
+                "answer": null
+            },
+            {
+                "question": "watch {{P}} flash someone else",
+                "answer": null
+            },
+            {
+                "question": "flirt with others in front of {{P}}",
+                "answer": null
+            },
+            {
+                "question": "watch {{P}} flirt with others",
+                "answer": null
+            },
+            {
+                "question": "dance with someone else while {{P}} watches",
+                "answer": null
+            },
+            {
+                "question": "watch {{P}} dance with someone else",
+                "answer": null
+            },
+            {
+                "question": "fondle someone else while {{P}} watches",
+                "answer": null
+            },
+            {
+                "question": "watch {{P}} fondle someone else",
+                "answer": null
+            },
+            {
+                "question": "perform oral sex on someone else in front of {{P}}",
+                "answer": null
+            },
+            {
+                "question": "have oral sex performed on you by someone else while {{P}} watches",
+                "answer": null
+            },
+            {
+                "question": "watch {{P}} get fondled by someone else",
+                "answer": null
+            },
+            {
+                "question": "be fondled by someone else while {{P}} watches",
+                "answer": null
+            },
+            {
+                "question": "grind on someone else while {{P}} watches",
+                "answer": null
+            },
+            {
+                "question": "watch partner grind on someone else",
+                "answer": null
+            },
+            {
+                "question": "dress sexy and meet partner at bar or club to roleplay as strangers",
+                "answer": null
+            },
+            {
+                "question": "watch partner perform oral sex on someone else",
+                "answer": null
+            },
+            {
+                "question": "watch partner have oral sex performed on him/her by someone else",
                 "answer": null
             }
         ]]
@@ -4677,7 +6228,7 @@ exports.default = [
 
 
 /***/ }),
-/* 54 */
+/* 55 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4702,9 +6253,10 @@ var __assign = (this && this.__assign) || Object.assign || function(t) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
-var QuestionGroup_1 = __webpack_require__(55);
-var Transfer_1 = __webpack_require__(56);
-var Results_1 = __webpack_require__(57);
+var react_router_dom_1 = __webpack_require__(6);
+var QuestionGroup_1 = __webpack_require__(56);
+var Transfer_1 = __webpack_require__(57);
+var Results_1 = __webpack_require__(58);
 var Questionnaire = (function (_super) {
     __extends(Questionnaire, _super);
     function Questionnaire(props) {
@@ -4817,14 +6369,16 @@ var Questionnaire = (function (_super) {
         fetch("https://letsexperiment-api.herokuapp.com/v1/" + this.props.match.params.id, {
             method: 'get'
         }).then(function (res) {
-            return res.json();
-        }).then(function (obj) {
-            if (obj.status !== 200) {
-                _this.setState({ hasError: true });
+            if (res.status !== 200) {
+                _this.setState({ hasError: true }, function () {
+                    _this.props.showApp();
+                });
             }
             else {
-                _this.loadData(obj.message);
+                return res.json();
             }
+        }).then(function (obj) {
+            _this.loadData(obj.message);
         }).catch(function (err) {
             console.log(err);
             _this.setState({ hasError: true });
@@ -4832,10 +6386,7 @@ var Questionnaire = (function (_super) {
     };
     Questionnaire.prototype.render = function () {
         if (this.state.hasError) {
-            return (React.createElement("div", null,
-                React.createElement("h1", null,
-                    "Could not load session: ",
-                    this.props.match.params.id)));
+            return (React.createElement(react_router_dom_1.Redirect, { to: '/' }));
         }
         else if (this.state.showTransfer) {
             return (React.createElement(Transfer_1.default, { partnerNickname: this.state.partnerNickname, sessionId: this.state.sessionId, showApp: this.props.showApp, hideApp: this.props.showApp, handleSubmit: this.handleSubmit }));
@@ -4859,21 +6410,21 @@ exports.default = Questionnaire;
 
 
 /***/ }),
-/* 55 */
+/* 56 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
-var genericAnswers_1 = __webpack_require__(19);
+var answers_1 = __webpack_require__(19);
 exports.default = function (props) {
     return (React.createElement("div", null,
         React.createElement("h2", { className: 'question-group' }, props.name),
         props.questions.map(function (q, i) {
             return React.createElement("li", { key: i, className: 'question' },
                 React.createElement("span", null, q.question),
-                React.createElement("div", { className: 'radio-list' }, genericAnswers_1.default.map(function (a, j) {
+                React.createElement("div", { className: 'radio-list' }, answers_1.default.map(function (a, j) {
                     return React.createElement("button", { key: j, type: 'button', value: j, className: q.answer == j ? 'radio-option selected' : 'radio-option', onClick: props.handleAnswer, "data-group": props.groupIndex, "data-question": i }, a);
                 })));
         })));
@@ -4881,7 +6432,7 @@ exports.default = function (props) {
 
 
 /***/ }),
-/* 56 */
+/* 57 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4947,7 +6498,7 @@ exports.default = Transfer;
 
 
 /***/ }),
-/* 57 */
+/* 58 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -4964,7 +6515,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = __webpack_require__(0);
-var genericAnswers_1 = __webpack_require__(19);
+var answers_1 = __webpack_require__(19);
 var Questionnaire = (function (_super) {
     __extends(Questionnaire, _super);
     function Questionnaire(props) {
@@ -5049,7 +6600,10 @@ var Questionnaire = (function (_super) {
         var _this = this;
         if (this.state.hasError) {
             return (React.createElement("div", null,
-                React.createElement("span", null, "ERROR :(")));
+                React.createElement("h2", null,
+                    "Could not load results for ",
+                    this.props.sessionId),
+                React.createElement("p", null, "Our servers might be down, please try again later")));
         }
         else {
             return (React.createElement("div", null,
@@ -5066,12 +6620,12 @@ var Questionnaire = (function (_super) {
                                     React.createElement("b", null,
                                         _this.state.partnerOneNickname,
                                         ":"),
-                                    genericAnswers_1.default[m.partnerOneAnswer]),
+                                    answers_1.default[m.partnerOneAnswer]),
                                 React.createElement("span", { className: 'match-answer' },
                                     React.createElement("b", null,
                                         _this.state.partnerTwoNickname,
                                         ":"),
-                                    genericAnswers_1.default[m.partnerTwoAnswer]))),
+                                    answers_1.default[m.partnerTwoAnswer]))),
                         React.createElement("span", { className: 'match-completed' }, m.completed ? 'Completed!' : null));
                 })));
         }

@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Redirect } from 'react-router-dom';
 
 import QuestionGroup from './QuestionGroup';
 import Transfer from './Transfer';
@@ -129,13 +130,15 @@ export default class Questionnaire extends React.Component<Props, State> {
 		fetch(`https://letsexperiment-api.herokuapp.com/v1/${this.props.match.params.id}`, {
 			method: 'get'
 		}).then((res) => {
-			return res.json();
-		}).then((obj) => {
-			if (obj.status !== 200) {
-				this.setState({ hasError: true });
+			if (res.status !== 200) {
+				this.setState({ hasError: true }, () => {
+					this.props.showApp();
+				});
 			} else {
-				this.loadData(obj.message);
+				return res.json();				
 			}
+		}).then((obj) => {
+			this.loadData(obj.message);
 		}).catch((err) => {
 			console.log(err);
 			this.setState({ hasError: true });
@@ -145,9 +148,7 @@ export default class Questionnaire extends React.Component<Props, State> {
 	render() {
 		if (this.state.hasError) {
 			return(
-				<div>
-					<h1>Could not load session: {this.props.match.params.id}</h1>
-				</div>
+				<Redirect to='/'/>
 			);
 		} else if (this.state.showTransfer) {
 			return(
