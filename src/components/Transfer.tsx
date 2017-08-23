@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Link } from 'react-router-dom'
+import * as copy from 'copy-to-clipboard';
 
 export interface Props {
 	partnerNickname: string,
@@ -27,12 +28,7 @@ export default class Transfer extends React.Component<Props, State> {
 	}
 
 	handleCopy(e: any) {
-		const textField = document.createElement('textarea');
-		textField.innerText = this.state.sessionUrl;
-		document.body.appendChild(textField);
-		textField.select();
-		document.execCommand('copy');
-		textField.remove();
+		copy(this.state.sessionUrl);
 		this.setState({
 			copyText: 'Copied!',
 			copyCursor: 'default'
