@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Header from './components/Header';
 import CreateSession from './components/CreateSession';
 import Questionare from './components/Questionnaire';
+import Terms from './components/Terms';
 
 export interface State {
     isVisible: boolean
@@ -42,7 +43,7 @@ class App extends React.Component<null, State> {
                             <CreateSession showApp={this.showApp} hideApp={this.hideApp} {...props} />
                         )}/>
                         <Route exact path='/terms' render={(props: any) => (
-                            <span>Terms...</span>
+                            <Terms />
                         )}/>
                         <Route path='/:id' render={(props: any) => (
                             <Questionare showApp={this.showApp} hideApp={this.hideApp} {...props} />
