@@ -92,6 +92,7 @@ export default class CreateSession extends React.Component<Props, State> {
     render() {
         return(
             <div className='getting-started'>
+		<div>Lets Experiment\! is an interactive sex questionnaire for couples that helps safely uncover unspoken fantasies or surface new desires. Both you and your partner answer the questionnaire seperately, indicating the activities you want to try and, optionally, selecting how interested you are in that activity. You can also enter your own questions to be answered and the question will be presented to your partner no differently than the others. Once you and your partner answer all the questions about various sexual desires and fantasies, you\'re shown only the sexual activities in which you are both interested.</div>
 				<form onSubmit={this.handleSubmit}>
 					<div className='form-container'>
 						<div className='text-input'>
