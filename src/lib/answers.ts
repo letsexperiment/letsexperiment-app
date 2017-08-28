@@ -1,1 +1,1 @@
-export default ['Not a chance', 'Already do this', 'I\'m down ', 'Definitely'];
+export default ['Not a chance', 'Already do this', 'Maybe', 'Definitely'];
